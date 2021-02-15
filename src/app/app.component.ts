@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { HttpService } from './services/http.service';
 
 @Component({
   selector: 'app-root',
@@ -9,12 +8,8 @@ import { HttpService } from './services/http.service';
 export class AppComponent {
   title = 'git-commits';
 
-  constructor(private _httpService: HttpService) { }
+  constructor() { }
 
   ngOnInit() {
-
-    this._httpService.sendGetRequest('repos/smartweber/rails-backbone/commits').subscribe((data: any[])=>{
-      console.log(data);
-    })  
   }
 }
