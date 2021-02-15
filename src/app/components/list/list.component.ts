@@ -8,13 +8,21 @@ import { HttpService } from 'src/app/services/http.service';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
+  page: number;
+  count: number;
+  tableSize: number;
+  pageLoaded: boolean;
   posts: CommitData[];
-  page = 1;
-  count = 0;
-  tableSize = 5;
-  tableSizes = [5, 20, 50];
+  tableSizes: number[];
 
-  constructor(private _httpService: HttpService) { }
+  constructor(private _httpService: HttpService) {
+    this.pageLoaded = false;
+    this.posts = [];
+    this.page = 1;
+    this.count = 0;
+    this.tableSize = 5;
+    this.tableSizes = [5, 20, 50];
+  }
 
   ngOnInit(): void {
     this.fetchAllCommits();
@@ -27,6 +35,7 @@ export class ListComponent implements OnInit {
     this._httpService.sendGetRequest(`repos/${username}/${repoName}/commits`).subscribe((data: CommitData[])=>{
       this.posts = data;
       this.count = this.posts.length;
+      this.pageLoaded = true;
     });
   }
 
