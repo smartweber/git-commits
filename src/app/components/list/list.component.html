@@ -12,8 +12,9 @@
   <table class="table">
     <thead>
       <tr>
-        <th>sha</th>
+        <th>SHA</th>
         <th>Message</th>
+        <th>Committer Date</th>
       </tr>
     </thead>
     <tbody>
@@ -23,8 +24,9 @@
                 totalItems: count
               };
         let i = index" [class.active]="i == currentIndex">
-        <th scope="row">{{post.sha}}</th>
-        <td>{{post.commit.message}}</td>
+        <th scope="row">{{post?.sha}}</th>
+        <td>{{post?.commit?.message}}</td>
+        <td>{{post?.commit?.committer?.date | date:'medium'}}</td>
       </tr>
     </tbody>
   </table>

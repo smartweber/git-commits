@@ -31,13 +31,11 @@ export class ListComponent implements OnInit {
 
   onTableDataChange(event: number){
     this.page = event;
-    this.fetchAllCommits();
   }  
 
   onTableSizeChange(event: any): void {
     this.tableSize = event.target.value;
     this.page = 1;
-    this.fetchAllCommits();
   }
 
 }
