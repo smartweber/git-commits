@@ -1,6 +1,10 @@
-# GitCommits
+# Git Commit history
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.0.
+This project displays git commit history.
+
+## Get started
+- Install Node v10+
+- Run `npm install` to install dependencies
 
 ## Development server
 
