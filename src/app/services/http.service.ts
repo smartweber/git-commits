@@ -1,15 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { GlobalConstants } from '../commons/global-constants';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HttpService {
-  private REST_API_SERVER = 'https://api.github.com';
+  apiURL: string;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+    this.apiURL = GlobalConstants.apiURL;
+  }
 
   public sendGetRequest(uri: string){
-    return this.httpClient.get(`${this.REST_API_SERVER}/${uri}`);
+    return this.httpClient.get(`${this.apiURL}/${uri}`);
   }
 }
