@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CommitData } from 'src/app/Interfaces/commit.interface';
 import { HttpService } from 'src/app/services/http.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { HttpService } from 'src/app/services/http.service';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-  posts: any;
+  posts: CommitData[];
   page = 1;
   count = 0;
   tableSize = 5;
@@ -23,7 +24,7 @@ export class ListComponent implements OnInit {
     const username = 'smartweber';
     const repoName = 'git-commits';
 
-    this._httpService.sendGetRequest(`repos/${username}/${repoName}/commits`).subscribe((data: any[])=>{
+    this._httpService.sendGetRequest(`repos/${username}/${repoName}/commits`).subscribe((data: CommitData[])=>{
       this.posts = data;
       this.count = this.posts.length;
     });
