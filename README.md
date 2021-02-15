@@ -5,6 +5,10 @@ This project displays git commit history.
 ## Get started
 - Install Node v10+
 - Run `npm install` to install dependencies
+- Run `npm start` to start project locally
+
+Additionally, using angular cli, you can manage angular features more.
+- Run `npm install -g @angular/cli` to install angular cli
 
 ## Development server
 
